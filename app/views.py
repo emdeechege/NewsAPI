@@ -7,4 +7,5 @@ def index():
     '''
     Root function returning index/home page with data
     '''
-    return render_template('index.html')
+    message= "test for"
+    return render_template('index.html',message=message)
