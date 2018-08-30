@@ -46,3 +46,35 @@ def process_results(source_list):
             source_results.append(source_object)
 
     return source_results
+
+def article_source(id):
+    article_source_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey={'.format(id,api_key)
+    with urllib.request.urlopen(article_source_url) as url:
+        article_source_data = url.read()
+        article_source_response = json.loads(article_source_data)
+
+        article_source_results = None
+
+        if article_source_response['articles']:
+            article_source_list = article_source_response['articles']
+            article_source_results = process_results(article_source_list)
+
+
+    return article_source_results
+
+def process_articles(articles_response):
+    '''
+    function that processes the json files of articles from the api key
+    '''
+    my_articles_list = []
+    for article in articles_response:
+        article_name = article.get('author')
+        article_description = article.get('description')
+        article_time = article.get('publishedAt')
+        article_image = article.get('urlToImage')
+        article_url = article.get('url')
+        article_title = article.get ('title')
+        article_objects = News_Highlights_by_source(article_name,article_description,article_time,article_image,article_url, article_title)
+        my_articles_list.append(article_objects)
+
+    return my_articles_list

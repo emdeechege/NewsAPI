@@ -1,1 +1,10 @@
 <h1> Hello Movie {{ name }} </h1>
+<body>
+        <!-- sources section  -->
+        <h3> Articles</h3>
+         <ul>
+            {% for article in articles %}
+                <li>{{ article.name}}</li>
+            {% endfor %}
+        </ul>
+ </body>
