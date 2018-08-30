@@ -1,1 +1,10 @@
-<h1>my display{{message}}</h1>
+<!-- <h1>my display{{message}}</h1> -->
+<body>
+        <!-- sources section  -->
+        <h3> Sources</h3>
+         <ul>
+            {% for source in sources %}
+                <li>{{ source.id}}</li>
+            {% endfor %}
+        </ul>
+ </body>
