@@ -1,10 +1,10 @@
 from app import app
 import urllib.request,json
 # from .models import sources
-from .models import sources
+from .models import sources, articles
 
 Source = sources.Source
-
+Article = articles.Article
 #API key
 api_key = app.config['NEWS_API_KEY']
 #source url
@@ -48,7 +48,8 @@ def process_results(source_list):
     return source_results
 
 def article_source(id):
-    article_source_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey={'.format(id,api_key)
+    article_source_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'.format(id,api_key)
+    # print(article_source_url)
     with urllib.request.urlopen(article_source_url) as url:
         article_source_data = url.read()
         article_source_response = json.loads(article_source_data)
@@ -57,24 +58,24 @@ def article_source(id):
 
         if article_source_response['articles']:
             article_source_list = article_source_response['articles']
-            article_source_results = process_results(article_source_list)
+            article_source_results = process_articles_results(article_source_list)
 
 
     return article_source_results
 
-def process_articles(articles_response):
+def process_articles_results(news):
     '''
     function that processes the json files of articles from the api key
     '''
-    my_articles_list = []
-    for article in articles_response:
-        article_name = article.get('author')
-        article_description = article.get('description')
-        article_time = article.get('publishedAt')
-        article_image = article.get('urlToImage')
-        article_url = article.get('url')
-        article_title = article.get ('title')
-        article_objects = News_Highlights_by_source(article_name,article_description,article_time,article_image,article_url, article_title)
-        my_articles_list.append(article_objects)
+    article_source_results = []
+    for article in news:
+        author = article.get('author')
+        description = article.get('description')
+        time = article.get('publishedAt')
+        image = article.get('urlToImage')
+        url = article.get('url')
+        title = article.get ('title')
+        article_objects = Article(author,description,time,image,url,title)
+        article_source_results.append(article_objects)
 
-    return my_articles_list
+    return article_source_results
