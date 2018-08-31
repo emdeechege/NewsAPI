@@ -1,7 +1,7 @@
 from app import app
 import urllib.request,json
 # from .models import sources
-from .models import sources, articles
+from .models import sources, articles, category
 
 Source = sources.Source
 Article = articles.Article
@@ -84,3 +84,20 @@ def process_articles_results(news):
         article_source_results.append(article_objects)
 
     return article_source_results
+
+def get_category(name):
+    '''
+    function that gets the response to the category json
+    '''
+    get_category_url = cat_url.format(name,api_key)
+    with urllib.request.urlopen(get_category_url) as url:
+        get_category_data = url.read()
+        get_cartegory_response = json.loads(get_category_data)
+
+        get_cartegory_results = None
+
+        if get_cartegory_response['articles']:
+            get_cartegory_list = get_cartegory_response['articles']
+            get_cartegory_results = process_articles(get_cartegory_list)
+
+    return get_cartegory_results

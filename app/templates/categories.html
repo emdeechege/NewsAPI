@@ -1,1 +1,28 @@
+{% extends 'base.html'%} {% block content %}
 
+<body>
+  <br>
+  <br>
+  <h1 align="center"> {{id}} </h3>
+  <div class="container">
+    <div class="card-columns">
+      {% for category in source %}
+
+      <div class="card">
+        <img class="card" src="{{article.image}}" alt="Card image cap" size="100px180">
+        <div class="card-body">
+          <h5 class="card-title">{{source.name}}</h5>
+          <p class="card-text">{{source.description}}</p>
+
+        </div>
+        <div class="card-footer">
+          <a href="{{source.url}}">
+            <p class="card-text">Click here for more details!</p>
+          </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+</body>
+{% endblock %}
