@@ -21,3 +21,13 @@ def article(id):
     # title= 'Articles'
     articles = article_source(id)
     return render_template('article.html',articles= articles,id=id )
+
+@app.route('/categories/<cat>')
+def categories(cat):
+
+    '''
+    View categories that return articles relevant to the category
+    '''
+    category = get_category(cat)
+    # source = get_categories()
+    return render_template('categories.html',category=category)

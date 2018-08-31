@@ -9,6 +9,9 @@ Article = articles.Article
 api_key = app.config['NEWS_API_KEY']
 #source url
 source_url= app.config['NEWS_API_SOURCE_URL']
+#categories url
+cat_url=app.config['CAT_API_URL']
+
 
 def get_source():
     '''
