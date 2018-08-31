@@ -5,20 +5,3 @@
     {% endfor %}
 
 {% endmacro %} -->
-{% macro display_articles_from_source(source_and_articles) %}
-    {% for article in source_and_articles %}
-    <hr>
-    <li>
-        <h3 id="article_title">{{article.article_title}}</h3>
-        <h4><span style="color:blue;">Time:&nbsp;</span>{{ article.article_time}}</h4>
-
-        <a href="{{article.article_image}}">
-            <h3>Read More</h3>
-        </a>
-        <a href="{{article.article_image}}">
-            <img src="{{article.article_url}}">
-        </a>
-
-    </li>
-    {% endfor %}
-{% endmacro %}
