@@ -75,6 +75,7 @@ def process_articles_results(news):
         image = article.get('urlToImage')
         url = article.get('url')
         title = article.get ('title')
+        
         article_objects = Article(author,description,time,image,url,title)
         article_source_results.append(article_objects)
 

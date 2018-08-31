@@ -20,4 +20,4 @@ def article(id):
     '''
     # title= 'Articles'
     articles = article_source(id)
-    return render_template('article.html',articles= articles )
+    return render_template('article.html',articles= articles,id=id )

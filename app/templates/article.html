@@ -1,9 +1,25 @@
 <body>
 
-  <h3> Articles</h3>
-  <ul>
-    {% for article in articles %}
+  <h3> Articles from {{id}}</h3>
+
+  <!-- <ul>
+{% for article in articles %}
     <li>{{ article.image}}</li>
     {% endfor %}
   </ul>
-</body>
+</body> -->
+<div class="card-group">
+  {% for article in articles %}
+  <div class="card">
+    <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+  </body>
