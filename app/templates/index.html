@@ -1,12 +1,15 @@
 <!-- <h1>my display{{message}}</h1> -->
-{% extends 'base.html'%}
+{% extends 'base.html'%} {% block content %}
+
 <body>
-        <!-- sources section  -->
-        <h3> Sources</h3>
-         <ul>
-            {% for source in sources %}
-                <li>{{ source.name}}</li>
-                <a href="/article/{{source.id}}">{{source.id}}</a>
-            {% endfor %}
-        </ul>
- </body>
+  <br>
+  <br>
+  <!-- sources section  -->
+  <h3> Sources</h3>
+  <ul>
+    {% for source in sources %}
+    <li>{{ source.name}}</li>
+    <a href="/article/{{source.id}}">{{source.id}}</a> {% endfor %}
+  </ul>
+  {% endblock %}
+</body>

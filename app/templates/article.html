@@ -1,14 +1,15 @@
-{% extends 'base.html'%}
-<!-- {% import 'macros.html' as macro%} -->
-<body>
+{% extends 'base.html'%} {% block content %}
 
-  <h3> Articles from {{id}}</h3>
+<body>
+  <br>
+  <br>
+  <h1 align="center"> {{id}} </h3>
   <div class="container">
-    <div class="card-group">
+    <div class="card-columns">
       {% for article in articles %}
 
       <div class="card">
-        <img class="card" src="{{article.image}}" alt="Card image cap">
+        <img class="card" src="{{article.image}}" alt="Card image cap" size="100px180">
         <div class="card-body">
           <h5 class="card-title">{{article.author}}</h5>
           <p class="card-text">{{article.description}}</p>
@@ -23,4 +24,5 @@
       {% endfor %}
     </div>
   </div>
+  {% endblock %}
 </body>
