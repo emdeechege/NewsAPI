@@ -1,5 +1,5 @@
 import urllib.request,json
-from .models import Movie
+from .models import Article, Category, Source
 
 # Getting api key
 api_key = None

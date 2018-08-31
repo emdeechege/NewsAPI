@@ -1,4 +1,4 @@
- import os
+import os
 
 class Config:
     '''
@@ -6,8 +6,8 @@ class Config:
     '''
     NEWS_API_SOURCE_URL='https://newsapi.org/v2/sources?apiKey={}'
     CAT_API_URL='https://newsapi.org/v2/everything?q={}&sortBy=relevancy&apiKey={}'
-    API_KEY=os.environ.get('API_KEY')
-    SECRET_KEY = os.environ.get('SECRET_KEY')
+    NEWS_API_KEY=os.environ.get('NEWS_API_KEY')
+
 
 
 
