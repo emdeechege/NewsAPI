@@ -1,7 +1,11 @@
-<!-- {% macro displaySource(source_list) %}
+<!-- {% macro displaySources(news) %}
+{% for article in articles %}
+<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 articles-card">
+  <img src="{{ article.image }}" alt="{{ article.title }} poster" class="img-responsive">
+  <li class="text-center">
+    <a href="{{article.url}}">
+                    Click here for full article...</a>
+  </li>
+</div>
 
-    {% for source in source_list %}
-        <li>{{ sources}}</li>
-    {% endfor %}
-
-{% endmacro %} -->
+{% endfor %} {% endmacro %} -->
