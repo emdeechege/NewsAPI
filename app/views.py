@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app
-from .request import get_source,article_source, get_source
+from .request import get_source,article_source, get_category
 
 #our views
 @app.route('/')
@@ -22,12 +22,12 @@ def article(id):
     articles = article_source(id)
     return render_template('article.html',articles= articles,id=id )
 
-@app.route('/category/<cat_name>')
+@app.route('/categories/<cat_name>')
 def category(cat_name):
     '''
-    function to return the category.html page and its content
+    function to return the categories.html page and its content
     '''
     category = get_category(cat_name)
-    print (category)
     title = f'{cat_name}'
-    return render_template('category.html',title = title, category = category)
+    m=cat_name
+    return render_template('categories.html',title = title,m=m, category = category)

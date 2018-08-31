@@ -18,7 +18,7 @@ def get_source():
     Function that gets the json response to url request
     '''
     get_source_url= source_url.format(api_key)
-    print(get_source_url)
+    # print(get_source_url)
     with urllib.request.urlopen(get_source_url) as url:
         get_sources_data = url.read()
         get_sources_response = json.loads(get_sources_data)
@@ -85,11 +85,12 @@ def process_articles_results(news):
 
     return article_source_results
 
-def get_category(name):
+def get_category(cat_name):
     '''
     function that gets the response to the category json
     '''
-    get_category_url = cat_url.format(name,api_key)
+    get_category_url = cat_url.format(cat_name,api_key)
+    print(get_category_url)
     with urllib.request.urlopen(get_category_url) as url:
         get_category_data = url.read()
         get_cartegory_response = json.loads(get_category_data)
@@ -98,6 +99,6 @@ def get_category(name):
 
         if get_cartegory_response['articles']:
             get_cartegory_list = get_cartegory_response['articles']
-            get_cartegory_results = process_articles(get_cartegory_list)
+            get_cartegory_results = process_articles_results(get_cartegory_list)
 
     return get_cartegory_results
