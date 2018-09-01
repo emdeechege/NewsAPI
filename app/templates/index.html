@@ -11,15 +11,15 @@
       <div class="row">
 
         <div class="col-3">
-          <div class="card">
+          <div class="card ">
             <div class="card-header">
               <h3> News Sources</h3>
             </div>
-            <div class="list-group list-group-flush">
+            <div class="list-group list-group-flush scrolly">
               <ul>
                 {% for source in sources %}
-                <a href="/article/{{source.id}}">{{source.id}}</a>
-                <br> {% endfor %}
+                <a href="/article/{{source.id}}"><p class="text-capitalize text-muted">{{source.id}}</p></a>
+                 {% endfor %}
               </ul>
             </div>
 
