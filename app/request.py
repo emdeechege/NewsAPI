@@ -82,8 +82,9 @@ def process_articles_results(news):
         image = article.get('url')
         title = article.get ('title')
 
-        article_objects = Article(author,description,time,image,url,title)
-        article_source_results.append(article_objects)
+        if url:
+            article_objects = Article(author,description,time,image,url,title)
+            article_source_results.append(article_objects)
 
     return article_source_results
 
