@@ -1,11 +1,25 @@
-<!-- {% macro displaySources(news) %}
-{% for article in articles %}
-<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 articles-card">
-  <img src="{{ article.image }}" alt="{{ article.title }} poster" class="img-responsive">
-  <li class="text-center">
-    <a href="{{article.url}}">
-                    Click here for full article...</a>
-  </li>
-</div>
+<!-- {% macro displaySources(source_results_list) %}
+{% for source in sources %}
+<div class="main">
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-3">
+        <div class="card ">
+          <div class="card-header">
+            <h4>Browse News Sources</h4>
+          </div>
+          <div class="list-group list-group-flush scrolly">
+            <ul>
+              {% for source in sources %}
+              <a href="/article/{{source.id}}">
+                <p class="text-capitalize text-muted">{{source.id}}</p>
+              </a>
+
+            </ul>
+          </div>
+
+        </div>
+      </div>
 
 {% endfor %} {% endmacro %} -->
