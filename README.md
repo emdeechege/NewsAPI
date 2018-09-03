@@ -37,7 +37,7 @@ As a user I would like to:
 * In your terminal:
 
         $ git clone https://github.com/emdeechege/NewsApi/
-        $ cd Sirius-News-Highlights
+        $ cd NewsPI
 
 ## Running the Application
 * Creating the virtual environment
